@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 
-import sensorRouter from "./routes/sensorRoutes.js";
+import routes from "./routes/index.js";
 import { appDataSource } from "./database/appDataSource.js";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
@@ -35,7 +35,7 @@ app.use(express.json());
 
 app.use(compression({ threshold: 1024 }))
 
-app.use('/api', sensorRouter);
+app.use('/api', routes);
 
 app.use(errorHandler)
 
